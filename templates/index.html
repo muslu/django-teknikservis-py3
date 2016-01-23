@@ -1,0 +1,55 @@
+{% extends "gerekli.html" %}
+
+{% block orta %}
+    <div id='wrap'>
+        <div id="sonuclarimuslu"
+             style="color:#ffffff;font-size:2.4vw;position:fixed;width:95%;top:20%;left:50%;-webkit-transform:translate(-50%, -50%);transform: translate(-50%, -50%);">
+        </div>
+        <div id='content'>
+            <section class='input'>
+                <div>
+                    <input type='text' placeholder='Form No' id="arama" maxlength="8">
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock orta %}
+
+{% block jsozel %}
+    <script src='/media/fancyInput.js'></script>
+    <script>
+
+        $('section :input').val('').fancyInput()[0].focus();
+
+        var aramam = document.getElementById('arama');
+        var sonuclarimuslu = document.getElementById('sonuclarimuslu');
+
+        aramam.addEventListener('keypress', function (event) {
+
+            if (event.keyCode == 13) {
+
+                sonuclarimuslu.innerHTML = "";
+                if (aramam.value.length == 8) {
+
+                    sonuclarimuslu.innerHTML = "Sorgulanıyor...<br /> Lütfen bekleyiniz.";
+                    $.post("/kn/", {
+                        TakipNo: aramam.value,
+                        csrfmiddlewaretoken: "{{ csrf_token }}"
+                    }, function (data) {
+                        sonuclarimuslu.innerHTML = data;
+                    });
+
+
+                } else {
+                    sonuclarimuslu.innerHTML = "Uygun bir arama kategorisi bulunamadı!";
+                    window.setTimeout(function () {
+                        aramam.focus();
+                    }, 0);
+
+                }
+            }
+        });
+
+    </script>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <meta charset="utf-8">
+    <title>İzmir Teknik Servis, Servis Formu kontrol, durum öğrenme | izmirteknikservis.tk</title>
+    <meta name="description" content="İzmir Teknik Servis, Servis Formu kontrol, durum öğrenme"/>
+    <link rel="canonical" href="http://www.izmirteknikservis.tk"/>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/media/favicon.ico">
+
+    <link rel="stylesheet" href="/media/styles.css">
+    <style>
+        body {
+            margin: 0px;
+            background: #fff;
+        }
+
+        .dis {
+            width: 100%;
+            position: fixed;
+            top: 0px;
+        }
+
+        .sabitust {
+            height: 50px;
+            background: #F0F0F0;
+            width: 100%;
+            margin: 0px auto;
+            line-height: 50px;
+        }
+
+        .orta {
+            width: 100%;
+            margin: 70px auto;
+        }
+
+
+        .sabitalt {
+            position: fixed;
+            left: 0px;
+            bottom: 0px;
+            height: 40px;
+            width: 100%;
+            background: #C9F0DD;
+            z-index: 9999;
+            line-height: 40px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="dis">
+    <div class="sabitust">
+
+        <p><a href="/">Ana Sayfa</a> | <a href="/test/">Test</a></p>
+
+    </div>
+
+    <div class="orta">
+        {% block orta %}{% endblock orta %}
+    </div>
+
+    <div class="sabitalt">Sabit Alt</div>
+</div>
+
+<script src="/media/html5shiv.min.js"></script>
+<script src="/media/jquery-1.9.1.min.js"></script>
+
+
+{% block jsozel %}{% endblock jsozel %}
+
+</body>
+</html>
