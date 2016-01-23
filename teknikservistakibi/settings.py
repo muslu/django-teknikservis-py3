@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import os
 
 # Projenin bulunduğu klasöre ulaşmak için değişken
@@ -12,13 +11,10 @@ DEBUG                           = True
 ALLOWED_HOSTS                       = ['192.168.2.168', '127.0.0.1']
 
 # Veritabanı seçimi, ayarları
-DATABASES                           = DATABASES = {
+DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'djangoturkiye',
-        'USER': 'korhan',
-        'PASSWORD': 'korhan123',
-        'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
