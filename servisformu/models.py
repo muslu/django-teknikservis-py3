@@ -10,7 +10,7 @@ class Teknisyen ( models.Model ) :
     AdSoyad             =       models.CharField ( 'Adı Soyadı', max_length = 250 )
     KayitTarihi         =       models.DateField ( "Kayıt Tarihi", default=timezone.now)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.AdSoyad
 
     class Meta:
@@ -60,7 +60,7 @@ class Musteriler ( models.Model ) :
 class Durumlar (models.Model ):
     Durumu              =       models.CharField('Durum', max_length=30, help_text='Metin alanının altında kayıt girerken yardımcı olabilecek konuları anlatan kısa bir açıklama yazabilirsiniz.')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.Durumu
 
     class Meta:
@@ -90,7 +90,7 @@ class ServisForm ( models.Model ) :
     FormNo              =       models.CharField ( 'Form No', default=''.join(get_random_string(length=8, allowed_chars='1234567890')), max_length = 8, unique=True)
     KayitTarihi         =       models.DateTimeField ( "Kayıt Tarihi", default=timezone.now)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.FormNo
 
     class Meta:
@@ -117,7 +117,7 @@ class Urunler ( models.Model ) :
     Durum               =       models.ForeignKey ( Durumlar )
     Not                 =       models.TextField ( 'Yapılan İşlemler', blank=True )
     TeslimatTarihi      =       models.DateField ( "Teslimat Tarihi", default=timezone.now, blank=True )
-    def __unicode__(self):
+    def __str__(self):
         return "{} {} {}".format(self.Cins, self.Marka, self.Model)
 
     class Meta:
