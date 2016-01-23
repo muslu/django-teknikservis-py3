@@ -1,4 +1,5 @@
 from django.utils import timezone
+from django.utils.crypto import get_random_string
 from django.db import models
 
 
@@ -29,11 +30,9 @@ class Teknisyen ( models.Model ) :
 
 
 
-import random,  string
-
 class Musteriler ( models.Model ) :
     Aktif               =       models.BooleanField(default = 1)
-    Kodu                =       models.CharField ( 'Müşteri Kod', default=''.join(random.choice(string.digits) for x in range(8)), max_length = 8 )
+    Kodu                =       models.CharField ( 'Müşteri Kod', default=''.join(get_random_string(length=8, allowed_chars='1234567890')), max_length = 8, unique=True)
     Unvan               =       models.CharField ( 'Ticari Ünvan', max_length = 250 )
     Yetkili             =       models.CharField ( 'Yetkili Adı Soyadı', max_length = 250 )
     Telefon             =       models.CharField ( 'Telefon', max_length = 13, blank = True )
@@ -88,7 +87,7 @@ class ServisForm ( models.Model ) :
     TeslimEden          =       models.CharField ( 'Teslim Eden', max_length = 130 )
     # TeslimAlan          =       models.ForeignKey ( Teknisyen, default=int(Teknisyen.objects.get(id=1).id)  )
     TeslimAlan          =       models.ForeignKey ( Teknisyen  )
-    FormNo              =       models.CharField ( 'Form No', default=''.join(random.choice(string.digits) for x in range(8)), max_length = 8 )
+    FormNo              =       models.CharField ( 'Form No', default=''.join(get_random_string(length=8, allowed_chars='1234567890')), max_length = 8, unique=True)
     KayitTarihi         =       models.DateTimeField ( "Kayıt Tarihi", default=timezone.now)
 
     def __unicode__(self):
