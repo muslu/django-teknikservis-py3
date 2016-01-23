@@ -6,7 +6,7 @@ from django.db import models
 
 
 class Teknisyen ( models.Model ) :
-    Aktif               =       models.BooleanField(default = 1)
+    Aktif               =       models.BooleanField(default = True)
     AdSoyad             =       models.CharField ( 'Adı Soyadı', max_length = 250 )
     KayitTarihi         =       models.DateField ( "Kayıt Tarihi", default=timezone.now)
 
@@ -31,7 +31,7 @@ class Teknisyen ( models.Model ) :
 
 
 class Musteriler ( models.Model ) :
-    Aktif               =       models.BooleanField(default = 1)
+    Aktif               =       models.BooleanField(default = True)
     Kodu                =       models.CharField ( 'Müşteri Kod', default=''.join(get_random_string(length=8, allowed_chars='1234567890')), max_length = 8, unique=True)
     Unvan               =       models.CharField ( 'Ticari Ünvan', max_length = 250 )
     Yetkili             =       models.CharField ( 'Yetkili Adı Soyadı', max_length = 250 )

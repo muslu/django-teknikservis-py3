@@ -48,7 +48,7 @@ def SecilileriGuncelle(modeladmin, request, queryset):
             k.Yetkili = k.Yetkili + "___Musluilebaşlıyordu"
         k.save()
     return ""
-SecilileriGuncelle.short_description = u"Seçilileri Güncelle"
+SecilileriGuncelle.short_description = "Seçilileri Güncelle"
 
 
 class MusterilerAdmin(admin.ModelAdmin):
