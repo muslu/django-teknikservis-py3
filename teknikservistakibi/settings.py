@@ -27,7 +27,7 @@ INSTALLED_APPS              = [
                                     'django.contrib.sessions',
                                     'django.contrib.messages',
                                     'django.contrib.staticfiles',
-                                    'servisformu.apps.ServisformuConfig'
+                                    'servisformu.apps.ServisformuConfig',
                                 ]
 
 # Tüm projede geçerli olacak kodlar. Sıralamaya göre öncelik middleware lerdedi.
